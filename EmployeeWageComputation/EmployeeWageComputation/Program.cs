@@ -7,7 +7,7 @@ namespace EmployeeWageComputation
         static void Main(string[] args)
         {
             EmployeeWageCalculation empAtt = new EmployeeWageCalculation();
-            empAtt.EmployeeDailyWag();
+            empAtt.EmployeeDailyWage();
         }
     }
 }
