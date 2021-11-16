@@ -4,27 +4,30 @@ using System.Text;
 
 namespace EmployeeWageComputation
 {
-    class EmployeeWageCalculation
+    public class EmployeeWageCalculation
     {
-        public const int WAGE_PR_HR = 20, FULL_DAY_HOUR = 8, HALF_DAY_HOUR = 4, PRESENT = 1, HALF_DAY = 2;
-        int totalSalary, TOTAL_HOUR = 0;
+        public const int IS_FULL_TIME = 1, IS_PART_TIME = 2, WAGE_PER_HR = 20, FULL_WORKING_HRS = 8, PART_WORKING_HRS = 4, WORKING_DAYS = 20;
+        int totalEmpWage, empHrs;
         public void MonthlyEmployeeWage()
         {
-            Random rand = new Random();
-            int empCheck = rand.Next(0, 3);
-            switch (empCheck)
+            Random random = new Random();
+            for (int i = 0; i < WORKING_DAYS; i++)
             {
-                case PRESENT:
-                    this.TOTAL_HOUR = FULL_DAY_HOUR;
-                    break;
-                case HALF_DAY:
-                    this.TOTAL_HOUR = HALF_DAY_HOUR;
-                    break;
-                default:
-                    Console.WriteLine("Employee is Absent for the Day");
-                    break;
-                    this.totalSalary = WAGE_PR_HR * TOTAL_HOUR;
-                    Console.WriteLine("Employee Salary is: " + totalSalary);
+                int empCheck = random.Next(0, 3);
+                switch (empCheck)
+                {
+                    case IS_FULL_TIME:
+                        this.empHrs = FULL_WORKING_HRS;
+                        break;
+                    case IS_PART_TIME:
+                        this.empHrs = PART_WORKING_HRS;
+                        break;
+                    default:
+                        this.empHrs = 0;
+                        break;
+                }
             }
+            Console.WriteLine(this.totalEmpWage = this.empHrs * WAGE_PER_HR);
+        }
     }
 }

@@ -7,8 +7,8 @@ namespace EmployeeWageComputation
         static void Main(string[] args)
         {
 
-            EmployeeWageCalculation empAtt = new EmployeeWageCalculation();
-            empAtt.MonthlyEmployeeWage();
+            EmployeeWageCalculation employee = new EmployeeWageCalculation();
+            employee.MonthlyEmployeeWage();
         }
     }
 }
