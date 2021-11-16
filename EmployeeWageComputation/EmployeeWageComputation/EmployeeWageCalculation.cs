@@ -6,34 +6,25 @@ namespace EmployeeWageComputation
 {
     class EmployeeWageCalculation
     {
-        public const int WAGE_PR_HR = 20, FULL_DAY_HOUR = 8, HALF_DAY_HOUR = 4, PRESENT = 1, HALF_DAY = 2, TOTAL_DAYS = 20, TOTAL_HOUR = 100;
-        int totalSalary, empHr, totalEmpHrs = 0, totalWorkingDays = 0;
-        public int ComputeEmployeeWage(string company, int empRatePrHr, int numOfWorkingDays, int maxHourPrMonth)
+        public const int WAGE_PR_HR = 20, FULL_DAY_HOUR = 8, HALF_DAY_HOUR = 4, PRESENT = 1, HALF_DAY = 2;
+        int totalSalary, TOTAL_HOUR = 0;
+        public void MonthlyEmployeeWage()
         {
             Random rand = new Random();
             int empCheck = rand.Next(0, 3);
-            while (totalEmpHrs <= maxHourPrMonth && totalWorkingDays <= numOfWorkingDays)
+            switch (empCheck)
             {
-                totalWorkingDays++;
-                switch (empCheck)
-                {
-                    case PRESENT:
-                        this.empHr += FULL_DAY_HOUR;
-                        break;
-                    case HALF_DAY:
-                        this.empHr += HALF_DAY_HOUR;
-                        break;
-                    default:
-                        Console.WriteLine("Employee is Absent for the Day");
-                        break;
-                }
-                totalEmpHrs += empHr;
-                Console.WriteLine("Day#:" + totalWorkingDays + "Emp Hrs : " + empHr);
-
+                case PRESENT:
+                    this.TOTAL_HOUR = FULL_DAY_HOUR;
+                    break;
+                case HALF_DAY:
+                    this.TOTAL_HOUR = HALF_DAY_HOUR;
+                    break;
+                default:
+                    Console.WriteLine("Employee is Absent for the Day");
+                    break;
+                    this.totalSalary = WAGE_PR_HR * TOTAL_HOUR;
+                    Console.WriteLine("Employee Salary is: " + totalSalary);
             }
-            this.totalSalary = WAGE_PR_HR * totalEmpHrs;
-            Console.WriteLine("Here is the Monthly Wage of Emp." + this.totalSalary);
-            return totalSalary;
-        }
     }
 }
